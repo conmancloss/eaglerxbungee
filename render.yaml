@@ -1,1 +1,18 @@
-
+services:
+  - type: web
+    name: eaglercraftX # Unique name for your service
+    plan: starter # Instance type (e.g., free, starter)
+    runtime: python # The language runtime
+    repo: https://github.com/my-user/my-repo.git # Optional, defaults to the repo containing render.yaml
+    buildCommand: "./build.sh" # A custom build script
+    startCommand: "gunicorn my_app.wsgi" # The command to start your application
+    envVars: # Environment variables
+      - key: DATABASE_URL
+        fromDatabase:
+          name: my-database
+          property: connectionString
+      - key: SECRET_KEY
+        sync: false # Do not commit secrets to Git. You'll set this in the Render dashboard.
+    # Optional: Enable preview environments for branches
+    previews:
+      generation: automatic
