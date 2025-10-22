@@ -3,7 +3,7 @@ services:
     name: eaglercraftX # Unique name for your service
     plan: starter # Instance type (e.g., free, starter)
     runtime: python # The language runtime
-    repo: https://github.com/my-user/my-repo.git # Optional, defaults to the repo containing render.yaml
+    repo: https://github.com/conmancloss/eaglerxbungee # Optional, defaults to the repo containing render.yaml
     buildCommand: "./build.sh" # A custom build script
     startCommand: "gunicorn my_app.wsgi" # The command to start your application
     envVars: # Environment variables
